@@ -1,6 +1,0 @@
-F:\Patterns\Decorator\Decorator\bin\Debug\Decorator.exe.config
-F:\Patterns\Decorator\Decorator\bin\Debug\Decorator.exe
-F:\Patterns\Decorator\Decorator\bin\Debug\Decorator.pdb
-F:\Patterns\Decorator\Decorator\obj\Debug\Decorator.csprojResolveAssemblyReference.cache
-F:\Patterns\Decorator\Decorator\obj\Debug\Decorator.exe
-F:\Patterns\Decorator\Decorator\obj\Debug\Decorator.pdb
