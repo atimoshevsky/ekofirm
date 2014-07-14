@@ -1,0 +1,7 @@
+﻿@model IEnumerable<MyOpportunity.Models.MainMenu>
+<ul class="dropdown-menu">
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.Title, item.ActionName, item.ControllerName, new { id = item.CategoryID }, null)</li>
+    }
+</ul>

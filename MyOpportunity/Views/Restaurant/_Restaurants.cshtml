@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MyOpportunity.Models.SimpleRestaurantReview>
+
+<div id="restaurantlist">
+    @foreach (var item in Model)
+    {
+        <div>
+            <h4>@Html.DisplayFor(modelItem => item.RestaurantName)</h4>
+            <div>@Html.DisplayFor(modelItem => item.Country)</div>
+            <div>@Html.DisplayFor(modelItem => item.TotalReviewCounts)</div>
+        </div>
+
+    }
+</div>
+

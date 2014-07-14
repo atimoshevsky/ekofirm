@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Navbar Template for Bootstrap</title>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @*<div class="background" style="display: block; background-image: url(/Images/BG/bg.jpg);" data-id="0"></div>*@
+    <header>
+        <div class="container">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">ЭКО ФЕРМА</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Продукция<b class="caret"></b></a>
+                                @{Html.RenderAction("MainMenu", "Home");}
+                            </li>
+                            <li><a href="#">Доставка</a></li>
+                            <li><a href="#">Фотогалерея</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Разное<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Новинки</a></li>
+                                    <li><a href="#">Акции</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Разное</li>
+                                    <li><a href="#">Контакты</a></li>
+                                    <li><a href="#">О нас</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Админка<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Category", "Index", "Category")</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!--/.nav-collapse -->
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <div id="slideContent">
+        <div class="container">
+            <div id="slides">
+                <img src="/Images/BG/slide1.jpg" />
+                <img src="/Images/BG/slide2.jpg" />
+                <img src="/Images/BG/slide3.jpg" />
+                <img src="/Images/BG/slide4.jpg" />
+                <img src="/Images/BG/slide5.jpg" />
+                <img src="/Images/BG/slide6.jpg" />
+            </div>
+        </div>
+    </div>
+    <div id="body">
+        <div class="container">
+            <section class="main-content clear-fix">
+                <div class="row">
+                    <div class="col-md-9">
+                        @RenderBody()
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel-group" id="accordion active">
+                            <div class="panel panel-default">
+                                <div class="panel-heading panel-title-basket">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Корзина
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body" id="divBasket">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default active">
+                                <div class="panel-heading panel-title-season">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Сезонные продукты
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        @{Html.RenderAction("SeasonProducts", "Home");}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header alert-success">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Удалить</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-warning">Ваш товар добавлен в корзину</p>
+                </div>
+                <div class="modal-footer center-block">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+            </div>
+        </div>
+    </footer>
+    
+    @Scripts.Render("~/bundles/otf")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+@*<div class="float-right">
+        <section id="login">
+            @Html.Partial("_LoginPartial")
+        </section>
+        <nav>
+            <ul id="menu">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Category", "Index", "Category")</li>
+            </ul>
+        </nav>
+    </div>*@

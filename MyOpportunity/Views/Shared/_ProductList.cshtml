@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MyOpportunity.Models.Product>
+
+<div>
+    <form method="get" action="@Url.Action("Index")" data-otf-ajax="true"
+          data-otf-target="#restaurantlist">
+        <p class="text-muted">Введите название:</p>
+        <input type="search" name="searchName" data-otf-autocomlete="@Url.Action("Autocomplete")" />
+        <button type="submit" class="btn btn-info">Поиск</button>
+    </form>
+<br />
+    @foreach (var item in Model)
+{
+    <div class="productItem">
+        <ul class="nav nav-tabs nav-justified" id="myTab_@(item.ProductID)">
+            <li class="active"><a href="#main_@(item.ProductID)" data-toggle="tab">Всё</a></li>
+            <li><a href="#description_@(item.ProductID)" data-toggle="tab">Описание</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="main_@(item.ProductID)">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="@item.ImageUrl" alt="@item.ProductName" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h3>@item.ProductName</h3>
+                                <h2><small>@item.PriceClerification </small><span class="alert-success">@item.Price</span><small> грн</small></h2>
+                                <small>количество</small><input type="text" data-spin-product-id="spin_@(item.ProductID)" id="spin_@(item.ProductID)" />
+                                <button type="button" class="btn btn-success" name="basket" id="basket_@(item.ProductID)" data-product-id="@(item.ProductID)" data-product-name="@(item.ProductName)" data-product-price="@(item.Price)" data-spin-product-id="spin_@(item.ProductID)">
+                                    Купить <span class="glyphicon glyphicon-shopping-cart"></span>
+                                </button>
+                            </div>
+                            <div class="col-md-7">
+                                <p class="text-muted">@item.Description</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="tab-pane fade" id="description_@(item.ProductID)">
+                <p class="bg-warning">
+                    @item.Description
+                </p>
+
+            </div>
+        </div>
+    </div>
+}
+</div>

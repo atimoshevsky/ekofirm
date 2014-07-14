@@ -1,0 +1,17 @@
+﻿@model MyOpportunity.Models.Category
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Продукты для категории "@Model.CategoryName"</h2>
+
+@Html.Partial("_Product", @Model.Products.Where(p => p.IsActive == true))
+
+<p>
+    @Html.ActionLink("Создать продукт", "Create", new { categoryid = Model.CategoryID }, new { @class = "text-primary" })
+    @Html.ActionLink("Назад к категориям", "Index", "Category")
+</p>
+

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<MyOpportunity.Models.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+@Html.Partial("_ProductList", @Model)

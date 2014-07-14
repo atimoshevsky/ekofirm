@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MyOpportunity.Models.Product>
+
+<div>
+    @foreach (var item in Model)
+{
+        <div >
+           <img src="@item.ImageUrl" alt="@item.ProductName" class="img-circle" width="140">
+        </div>
+}
+</div>
+
+

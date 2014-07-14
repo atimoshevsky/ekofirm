@@ -1,0 +1,8 @@
+﻿@model MyOpportunity.Models.Category
+
+@{
+    ViewBag.Title = "Продукты";
+}
+
+@Html.Partial("_ProductList", @Model.Products.Where(p => p.IsActive == true))
+

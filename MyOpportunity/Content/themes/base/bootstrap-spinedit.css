@@ -1,0 +1,51 @@
+﻿div.spinedit {
+    display: inline-block;
+    position: relative;
+}
+
+input[type="text"].spinedit {
+    width: 28px;
+    margin-left:2px;
+}
+
+div.spinedit .icon-chevron-up,
+div.spinedit .icon-chevron-down {
+    position: relative;
+    cursor: pointer;
+    width: 12px;
+    left: 8px;
+}
+
+div.spinedit .icon-chevron-up {
+    top: -9px;
+    left:3px;
+}
+
+div.spinedit .icon-chevron-down {
+    top: 9px;
+    left: -9px;
+}
+
+.form-search div.spinedit, .form-inline div.spinedit, .form-horizontal div.spinedit {
+    top: 5px;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url("/Images/glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+}
+
+.icon-chevron-up {
+    background-position: -288px -120px;
+}
+
+.icon-chevron-down {
+    background-position: -313px -119px;
+}

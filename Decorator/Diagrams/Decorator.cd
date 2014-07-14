@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Decorator.Patterns.aChikenPizza" BaseTypeListCollapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Patterns.aMushroomPizza" BaseTypeListCollapsed="true">
+    <Position X="12" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Patterns.aBeer" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Patterns.aJuice" BaseTypeListCollapsed="true">
+    <Position X="14" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="Decorator.Patterns.APizzaAdditions" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="16" Y="2.441" />
+        <Point X="16" Y="3.375" />
+        <Point X="14.75" Y="3.375" />
+        <Point X="14.75" Y="3.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Patterns.ChikenPizza" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Decorator.Patterns.MushroomPizza" BaseTypeListCollapsed="true">
+    <Position X="23.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Decorator.Patterns.Beer" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Decorator.Patterns.Juice" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Decorator.Patterns.APizza" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Patterns.APizzaAdditions" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Decorator.Patterns.IPizza">
+    <Position X="23.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Decorator.Patterns.IPizzaAdditions" Collapsed="true">
+    <Position X="26.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patterns\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
