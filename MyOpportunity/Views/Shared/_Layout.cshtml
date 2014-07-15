@@ -24,7 +24,6 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @*<div class="background" style="display: block; background-image: url(/Images/BG/bg.jpg);" data-id="0"></div>*@
     <header>
         <div class="container">
             <div class="navbar navbar-default" role="navigation">
@@ -36,7 +35,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">!ЭКО ФЕРМА!</a>
+                        <a class="navbar-brand" href="#">ЭКО ФЕРМА</a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
@@ -65,8 +64,7 @@
                             </li>
                         </ul>
 
-                    </div>
-                    <!--/.nav-collapse -->
+                    </div><!--/.nav-collapse -->
 
                 </div>
             </div>
@@ -98,19 +96,22 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading panel-title-basket">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Корзина
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                            Корзина
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in">
                                     <div class="panel-body" id="divBasket">
+
                                     </div>
                                 </div>
                             </div>
                             <div class="panel panel-default active">
                                 <div class="panel-heading panel-title-season">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Сезонные продукты
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                            Сезонные продукты
                                         </a>
                                     </h4>
                                 </div>
@@ -126,34 +127,57 @@
             </section>
         </div>
     </div>
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" id="MakeOfferDialog" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header alert-success">
+                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Удалить</h4>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="text-warning">Ваш товар добавлен в корзину</p>
-                </div>
-                <div class="modal-footer center-block">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#step1" role="tab" data-toggle="tab">Ваш заказ</a></li>
+                        <li><a href="#step2" role="tab" data-toggle="tab">Контактная информация</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="step1">
+                            <div id="divBasketProductList"></div>
+                        </div>
+                        <div class="tab-pane" id="step2">
+                            <div id="divCheckoutContactInfo" class="checkout-contact-info">
+                                <div class="form-group has-success has-feedback">
+                                    <input class="form-control" type="text" placeholder="Имя" id="iName">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback "></span>
+                                </div>
+                                <div class="form-group has-success has-feedback">
+                                    <input class="form-control" type="text" placeholder="Мобильный телефон" id="iPhone">
+                                </div>
+                                <div class="form-group has-success has-feedback">
+                                    <input class="form-control" type="text" placeholder="Email" id="iEmail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                        <button type="button" class="disabled" id="btnCheckoutSteps">Оформить заказ</button>
+                    </div>
                 </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+
+                </div>
             </div>
-        </div>
-    </footer>
-    
-    @Scripts.Render("~/bundles/otf")
-    @RenderSection("scripts", required: false)
+        </footer>
+
+        @Scripts.Render("~/bundles/otf")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
 

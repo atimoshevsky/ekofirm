@@ -3,8 +3,7 @@
 <div>
     <form method="get" action="@Url.Action("Index")" data-otf-ajax="true"
           data-otf-target="#restaurantlist">
-        <p class="text-muted">Введите название:</p>
-        <input type="search" name="searchName" data-otf-autocomlete="@Url.Action("Autocomplete")" />
+        <input type="search" name="searchName" data-otf-autocomlete="@Url.Action("Autocomplete")"  placeholder="название продукта"/>
         <button type="submit" class="btn btn-info">Поиск</button>
     </form>
 <br />

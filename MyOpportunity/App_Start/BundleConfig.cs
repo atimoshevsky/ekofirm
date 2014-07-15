@@ -15,9 +15,12 @@ namespace MyOpportunity
                 "~/Scripts/jquery.validate*",
                 "~/Scripts/bootstrap*",
                 "~/Scripts/jquery.slides*",
-                "~/Scripts/BasketManager.js",   
-                "~/Scripts/otf.js"
+                "~/Scripts/BasketManager.js",
+                "~/Scripts/otf.js",
+                "~/Scripts/jquery.dataTables*"
                 ));
+
+
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -50,7 +53,9 @@ namespace MyOpportunity
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/bootstrap.css",
                         "~/Content/themes/base/bootstrap-spinedit.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+                        "~/Content/themes/base/jquery.ui.theme.css",
+                        "~/Content/themes/base/jquery.dataTables.css"));
+
         }
     }
 }
