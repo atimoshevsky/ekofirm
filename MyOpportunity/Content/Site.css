@@ -801,11 +801,13 @@ tr.pager td {
     margin-bottom:10px;
 }
 
-#divBasketProductList{
+#divBasketProductList, #divCheckoutContactInfo
+{
     margin-top:20px;
 }
 
-.checkout-contact-info input[type=text] {
-    margin-top: 20px;
-}
+
+#iPhone, #inputName, #iEmail
+{
+    border-color:rgba(82,168,236,.8);
 }

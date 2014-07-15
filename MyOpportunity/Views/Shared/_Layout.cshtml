@@ -64,7 +64,8 @@
                             </li>
                         </ul>
 
-                    </div><!--/.nav-collapse -->
+                    </div>
+                    <!--/.nav-collapse -->
 
                 </div>
             </div>
@@ -96,22 +97,19 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading panel-title-basket">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                            Корзина
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Корзина
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in">
                                     <div class="panel-body" id="divBasket">
-
                                     </div>
                                 </div>
                             </div>
                             <div class="panel panel-default active">
                                 <div class="panel-heading panel-title-season">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                            Сезонные продукты
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Сезонные продукты
                                         </a>
                                     </h4>
                                 </div>
@@ -149,35 +147,40 @@
                         <div class="tab-pane" id="step2">
                             <div id="divCheckoutContactInfo" class="checkout-contact-info">
                                 <div class="form-group has-success has-feedback">
-                                    <input class="form-control" type="text" placeholder="Имя" id="iName">
-                                    <span class="glyphicon glyphicon-ok form-control-feedback "></span>
+                                    <input type="text" class="form-control" id="inputName" placeholder="Имя">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
                                 </div>
                                 <div class="form-group has-success has-feedback">
                                     <input class="form-control" type="text" placeholder="Мобильный телефон" id="iPhone">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
                                 </div>
                                 <div class="form-group has-success has-feedback">
                                     <input class="form-control" type="text" placeholder="Email" id="iEmail">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                        <button type="button" class="disabled" id="btnCheckoutSteps">Оформить заказ</button>
+                        <form method="post" action="@Url.Action("Create", "Order")" data-basket-ajax="true" 
+                             data-basket-target="#divCheckoutContactInfo">
+                            <button type="submit" class="btn btn-default">Оформить заказ</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-
-                </div>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        @Scripts.Render("~/bundles/otf")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/otf")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 

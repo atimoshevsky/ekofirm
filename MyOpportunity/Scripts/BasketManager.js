@@ -89,7 +89,25 @@
         }
     };
 
-    AjaxSubmitOrder = function () {
+    makeOrderAjaxSubmit = function () {
+        $form = $(this);
+
+        var options = {
+            type: $form.attr("method"),
+            url: $form.attr("action"),
+            data: $form.serialize()
+        };
+
+
+        $.ajax(options).done(function (data) {
+            alert(data);
+            //var $target = $($form.attr("data-otf-target"));
+            //$target.replaceWith(data);
+            // we can add effects here!, do any manipulations that we want
+
+        });
+
+        return false;
     }
 
     $('#MakeOfferDialog').on('show.bs.modal', function (e) {
@@ -166,7 +184,8 @@
     // find all buttons 'Купить', they market with id = "basket_[PRODUCT_ID]"
     $("button[name='basket']").on("click", AddToBasket);
 
-    $("#btnCheckoutSteps").on("click", AjaxSubmitOrder);
+    $("form[data-basket-ajax='true']").submit(makeOrderAjaxSubmit);
+    
 
     //refresh basket HTML section
     RefreshBasketHtml();
