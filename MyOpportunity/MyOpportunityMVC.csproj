@@ -182,7 +182,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuyerController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\CuisineController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -214,6 +216,18 @@
     <Content Include="Content\themes\base\bootstrap-spinedit.css" />
     <Content Include="Content\themes\base\bootstrap-theme.css" />
     <Content Include="Content\themes\base\bootstrap.css" />
+    <Content Include="Content\themes\base\images\back_disabled.png" />
+    <Content Include="Content\themes\base\images\back_enabled.png" />
+    <Content Include="Content\themes\base\images\back_enabled_hover.png" />
+    <Content Include="Content\themes\base\images\favicon.ico" />
+    <Content Include="Content\themes\base\images\forward_disabled.png" />
+    <Content Include="Content\themes\base\images\forward_enabled.png" />
+    <Content Include="Content\themes\base\images\forward_enabled_hover.png" />
+    <Content Include="Content\themes\base\images\sort_asc.png" />
+    <Content Include="Content\themes\base\images\sort_asc_disabled.png" />
+    <Content Include="Content\themes\base\images\sort_both.png" />
+    <Content Include="Content\themes\base\images\sort_desc.png" />
+    <Content Include="Content\themes\base\images\sort_desc_disabled.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -228,6 +242,8 @@
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.dataTables.css" />
+    <Content Include="Content\themes\base\jquery.dataTables.min.css" />
     <Content Include="Content\themes\base\jquery.ui.accordion.css" />
     <Content Include="Content\themes\base\jquery.ui.all.css" />
     <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
@@ -296,6 +312,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.slides.js" />
     <Content Include="Scripts\jquery.slides.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -371,6 +389,11 @@
     <Content Include="Views\Shared\_ProductList.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Shared\_SeasonProducts.cshtml" />
+    <Content Include="Views\Buyer\Create.cshtml" />
+    <Content Include="Views\Buyer\Delete.cshtml" />
+    <Content Include="Views\Buyer\Details.cshtml" />
+    <Content Include="Views\Buyer\Edit.cshtml" />
+    <Content Include="Views\Buyer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
