@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MyOpportunity.Common;
 using MyOpportunity.Models;
 
 namespace MyOpportunity.Controllers
@@ -17,14 +18,23 @@ namespace MyOpportunity.Controllers
         // POST: /Order/Create
         public ActionResult Create(Order order)
         {
-            Order temoOrder = new Order();
-
-            temoOrder.Buyer = new Buyer() { Email = "alexander.timoshevsky@gmail.com", Name = "Alex", PhoneNumber = "0978838505" };
-            temoOrder.DateCreated = DateTime.Now;
-            temoOrder.OrderDetails = new List<OrderDetails>();
-            temoOrder.OrderDetails.Add(new OrderDetails() { Discount = 0, Price = 30, Quantity = 4 });
-
-            return Json(temoOrder);
+            try
+            {
+                if (Request.IsAjaxRequest())
+                {
+                    order.DateCreated = DateTime.UtcNow;
+                    order.OrderStatus = (int)Constants.OrderStatus.Ordered;
+                    db.Orders.Add(order);
+                    db.SaveChanges();
+                }
+                return Json(new { Result = "OK" });
+            }
+            catch (Exception ex)
+            { 
+                // log exception  here
+                return Json(new { Result = "Failed" });
+            }
+            
         }
 
         //

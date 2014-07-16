@@ -417,8 +417,8 @@ fieldset {
 
 label {
     display: block;
-    font-size: 1.2em;
-    font-weight: 600;
+    font-size: 0.9em;
+    font-weight: 400;
 }
 
 label.checkbox {
@@ -810,4 +810,14 @@ tr.pager td {
 #iPhone, #inputName, #iEmail
 {
     border-color:rgba(82,168,236,.8);
+}
+
+.modal-header
+{
+    background-color:#dff0d8 !important;
+}
+
+.dataTables_wrapper
+{
+    padding-left:10px;
 }

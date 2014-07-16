@@ -5,6 +5,52 @@
         RefreshBasketHtml();
     };
 
+    makeOrderAjaxSubmit = function () {
+        $form = $(this);
+
+        var $iName = $("#iName");
+        var $iEmail = $("#iEmail");
+        var $iPhone = $("#iPhone");
+
+        var productData = [];
+
+        if (localStorage.ProductList) {
+            var objProductList = jQuery.parseJSON(localStorage.ProductList);
+            for (var i in objProductList) {
+                productData.push({ "Quantity": objProductList[i].Count, "Price": objProductList[i].PricePerItem, "ProductID": objProductList[i].ID });
+            }
+        }
+
+        var order = {
+            "Buyer":
+                {
+                    "Name": $iName.val(),
+                    "Email": $iEmail.val(),
+                    "PhoneNumber": $iPhone.val()
+                },
+            "OrderDetails": productData
+        }
+
+        var options = {dataType: 'json',
+            type: $form.attr("method"),
+            url: $form.attr("action"),
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(order)
+        };
+
+
+        $.ajax(options).done(function (data) {
+            if (data.Result == "OK") {
+                localStorage.clear();
+                RefreshBasketHtml();
+                $('#MakeOfferDialog').modal('hide')
+
+            }
+        });
+
+        return false;
+    }
+
     var FindItemByKey = function (key) {
         if (localStorage.ProductList) {
             var objProductList = jQuery.parseJSON(localStorage.ProductList);
@@ -89,26 +135,7 @@
         }
     };
 
-    makeOrderAjaxSubmit = function () {
-        $form = $(this);
-
-        var options = {
-            type: $form.attr("method"),
-            url: $form.attr("action"),
-            data: $form.serialize()
-        };
-
-
-        $.ajax(options).done(function (data) {
-            alert(data);
-            //var $target = $($form.attr("data-otf-target"));
-            //$target.replaceWith(data);
-            // we can add effects here!, do any manipulations that we want
-
-        });
-
-        return false;
-    }
+   
 
     $('#MakeOfferDialog').on('show.bs.modal', function (e) {
 
@@ -119,6 +146,9 @@
 
 
             $('#productBasket').dataTable({
+                "paging":   false,
+                "ordering": false,
+                "info":     false,
                 "data": objProductList,
                 "columns": [
                     { "data": "ID", "title": "ID" },

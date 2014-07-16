@@ -16,6 +16,9 @@ namespace MyOpportunity.Models
         [Required]
         public DateTime DateCreated { get; set; }
 
+        [Required]
+        public int OrderStatus { get; set; }
+
         public Buyer Buyer { get; set; }
 
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
