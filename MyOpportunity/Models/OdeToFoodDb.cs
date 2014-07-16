@@ -18,8 +18,7 @@ namespace MyOpportunity.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
-
-        public DbSet<Buyer> Buyers { get; set; }
+        public DbSet<ContactInformation> ContactInformation { get; set; }
 
 
     } 

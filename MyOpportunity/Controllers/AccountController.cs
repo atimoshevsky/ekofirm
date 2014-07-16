@@ -14,7 +14,7 @@ using MyOpportunity.Models;
 namespace MyOpportunity.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
+    /*[InitializeSimpleMembership]*/
     public class AccountController : Controller
     {
         //

@@ -135,8 +135,6 @@
         }
     };
 
-   
-
     $('#MakeOfferDialog').on('show.bs.modal', function (e) {
 
         $("#divBasketProductList").html('<table cellpadding="0" cellspacing="0" border="0" class="display" id="productBasket"></table>');
@@ -148,7 +146,8 @@
             $('#productBasket').dataTable({
                 "paging":   false,
                 "ordering": false,
-                "info":     false,
+                "info": false,
+                "filter": false,
                 "data": objProductList,
                 "columns": [
                     { "data": "ID", "title": "ID" },
@@ -170,7 +169,7 @@
                     },
                     {
                         "render": function (data, type, row) {
-                            return "<span id='price_span_" + row.ID + "'>" + (row.PricePerItem * row.Count) + " грн</span>"
+                            return "<span id='price_span_" + row.ID + "'>" + (row.PricePerItem * row.Count) + "</span>"
                         },
                         "targets": 3
                     }

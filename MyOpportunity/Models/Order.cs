@@ -19,7 +19,7 @@ namespace MyOpportunity.Models
         [Required]
         public int OrderStatus { get; set; }
 
-        public Buyer Buyer { get; set; }
+        public ContactInformation ContactInformation { get; set; }
 
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }

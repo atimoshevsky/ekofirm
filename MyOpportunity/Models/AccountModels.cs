@@ -25,6 +25,11 @@ namespace MyOpportunity.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Email { get; set; }
+
+        public ContactInformation ContactInformation { get; set; }
     }
 
     public class RegisterExternalLoginModel

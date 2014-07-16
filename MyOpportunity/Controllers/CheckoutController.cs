@@ -18,7 +18,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Buyers.ToList());
+            return View(db.ContactInformation.ToList());
         }
 
         //
@@ -26,12 +26,12 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Buyer buyer = db.Buyers.Find(id);
-            if (buyer == null)
+            ContactInformation contactInfo = db.ContactInformation.Find(id);
+            if (contactInfo == null)
             {
                 return HttpNotFound();
             }
-            return View(buyer);
+            return View(contactInfo);
         }
 
         //
@@ -47,16 +47,16 @@ namespace MyOpportunity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Buyer buyer)
+        public ActionResult Create(ContactInformation contactInfo)
         {
             if (ModelState.IsValid)
             {
-                db.Buyers.Add(buyer);
+                db.ContactInformation.Add(contactInfo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(buyer);
+            return View(contactInfo);
         }
 
         //
@@ -64,7 +64,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Buyer buyer = db.Buyers.Find(id);
+            ContactInformation buyer = db.ContactInformation.Find(id);
             if (buyer == null)
             {
                 return HttpNotFound();
@@ -77,15 +77,15 @@ namespace MyOpportunity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Buyer buyer)
+        public ActionResult Edit(ContactInformation contactInfo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(buyer).State = EntityState.Modified;
+                db.Entry(contactInfo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(buyer);
+            return View(contactInfo);
         }
 
         //
@@ -93,7 +93,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Buyer buyer = db.Buyers.Find(id);
+            ContactInformation buyer = db.ContactInformation.Find(id);
             if (buyer == null)
             {
                 return HttpNotFound();
@@ -108,8 +108,8 @@ namespace MyOpportunity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Buyer buyer = db.Buyers.Find(id);
-            db.Buyers.Remove(buyer);
+            ContactInformation buyer = db.ContactInformation.Find(id);
+            db.ContactInformation.Remove(buyer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
