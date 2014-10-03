@@ -4,19 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyOpportunity.Models;
+using DAL.Generic;
+using BusinessLogic.Interfaces;
 
 namespace MyOpportunity.Controllers
 {
-    public class HomeController : Controller, IDisposable
+    public class HomeController : Controller
     {
+        private readonly ICatalogService _catalogService;
 
-        private OdeToFoodDb m_db = new OdeToFoodDb();
+        public HomeController(ICatalogService catalogService)
+        {
+            _catalogService = catalogService;
+        }
 
         [ChildActionOnly]
-        [OutputCache(Duration=500)]
         public ActionResult MainMenu()
         {
-            var categoryMenuModel = m_db.Categories.Select(c => new MainMenu { 
+            var categoryMenuModel = _catalogService.GetCategories().Select(c => new MainMenu
+            { 
                 ActionName = c.ActionName, 
                 ControllerName = c.ControllerName, 
                 Title = c.CategoryName,
@@ -29,14 +35,13 @@ namespace MyOpportunity.Controllers
         [ChildActionOnly]
         public ActionResult SeasonProducts()
         {
-            var seasonProducts = m_db.Products.Where(p => p.IncludeToSeason == true && p.IsActive == true).ToList();
+            var seasonProducts = _catalogService.GetSeasonProducts();
             return PartialView("_SeasonProducts", seasonProducts);
         }
 
         public ActionResult Index()
         {
-
-            var review = m_db.Products.Where(r => r.IsActive == true).Take(10);
+            var review = _catalogService.GetProducts();
 
             return View(review);
         } 
@@ -54,13 +59,6 @@ namespace MyOpportunity.Controllers
 
             return View();
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (m_db != null)
-                m_db.Dispose();
-
-            base.Dispose(disposing);
-        }
+       
     }
 }

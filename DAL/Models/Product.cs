@@ -4,9 +4,10 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MyOpportunity.Models
+namespace DAL.Models
 {
     public class Product
     {
@@ -60,9 +61,7 @@ namespace MyOpportunity.Models
 
         public int CategoryID { get; set; }
 
-        
-        public virtual ICollection<OrderDetails> OrderDetails{ get; set; }
 
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }
-
 }

@@ -6,24 +6,31 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyOpportunity.Models;
+using BusinessLogic.Interfaces;
+using DAL.Models;
 
 namespace MyOpportunity.Controllers
 {
     public class CategoryController : Controller
     {
-        private OdeToFoodDb db = new OdeToFoodDb();
+        private readonly ICatalogService _catalogService;
+
+        public CategoryController(ICatalogService catalogService)
+        {
+            _catalogService = catalogService;
+        }
 
         //
         // GET: /CategoryReview/
 
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(_catalogService.GetCategories());
         }
 
         public ActionResult CategoryList()
         {
-            return View(db.Categories.ToList());
+            return View(_catalogService.GetCategories());
         }
 
         //
@@ -31,7 +38,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Category category = db.Categories.Find(id);
+            var category = _catalogService.GetCategoryById(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -56,8 +63,7 @@ namespace MyOpportunity.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
-                db.SaveChanges();
+                _catalogService.CreateCategory(category);
                 return RedirectToAction("Index");
             }
 
@@ -69,7 +75,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Category category = db.Categories.Find(id);
+            var category = _catalogService.GetCategoryById(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -86,8 +92,7 @@ namespace MyOpportunity.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(category).State = EntityState.Modified;
-                db.SaveChanges();
+                _catalogService.UpdateCategory(category);
                 return RedirectToAction("Index");
             }
             return View(category);
@@ -98,7 +103,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Category category = db.Categories.Find(id);
+            var category = _catalogService.GetCategoryById(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -113,16 +118,9 @@ namespace MyOpportunity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
-            db.SaveChanges();
+            _catalogService.DeleteCategory(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
     }
 }

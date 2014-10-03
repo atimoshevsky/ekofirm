@@ -6,30 +6,37 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyOpportunity.Models;
+using BusinessLogic.Interfaces;
+using DAL.Models;
 
 namespace MyOpportunity.Controllers
 {
     public class ProductController : Controller
     {
-        private OdeToFoodDb db = new OdeToFoodDb();
+        private readonly ICatalogService _catalogService;
 
+
+        public ProductController(ICatalogService catalogService)
+        {
+            _catalogService = catalogService;
+        }
 
         public ActionResult ProductList([Bind(Prefix = "id")] int categoryId)
         {
-            var products = db.Categories.Find(categoryId);
+            var category = _catalogService.GetCategoryById(categoryId);
 
-            if (products == null)
+            if (category == null)
             {
                 return HttpNotFound();
             }
 
-            return View(products);
+            return View(category);
         }
          //
         // GET: /Reviews/
         public ActionResult Index([Bind(Prefix = "id")]int categoryId)
         {
-            var products = db.Categories.Find(categoryId);
+            var products = _catalogService.GetCategoryById(categoryId);
             return View(products);
         }
         //
@@ -49,9 +56,7 @@ namespace MyOpportunity.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.DateCreated = DateTime.UtcNow;
-                db.Products.Add(product);
-                db.SaveChanges();
+                _catalogService.CreateProduct(product);
                 return RedirectToAction("Index", new { id = product.CategoryID });
             }
 
@@ -63,7 +68,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Product product = db.Products.Find(id);
+            var product =_catalogService.GetProductById(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -80,8 +85,7 @@ namespace MyOpportunity.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                _catalogService.UpdateProduct(product);
                 return RedirectToAction("Index", new { id = product.CategoryID });
             }
             return View(product);
@@ -92,7 +96,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Product product = db.Products.Find(id);
+            Product product = _catalogService.GetProductById(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -107,17 +111,11 @@ namespace MyOpportunity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            var categoryID = product.CategoryID;
-            db.Products.Remove(product);
-            db.SaveChanges();
-            return RedirectToAction("Index", new { id = categoryID});
+            var categoryId = _catalogService.GetCategoryIdByProductId(id);
+            _catalogService.DeleteProduct(id);
+            return RedirectToAction("Index", new { id = categoryId});
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
+        
     }
 }

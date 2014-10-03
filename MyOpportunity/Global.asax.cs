@@ -1,4 +1,11 @@
-﻿using System;
+﻿
+using BusinessLogic.Classes;
+using BusinessLogic.Interfaces;
+using DAL.Generic;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Mvc;
+using MyOpportunity.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +30,16 @@ namespace MyOpportunity
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            var container = new UnityContainer();
+
+            container.RegisterType<IDALContext, DALContext>(new PerRequestLifetimeManager())
+                .RegisterType<ICatalogService, CatalogService>()
+                .RegisterType<IConnectionFactory, ConnectionFactory>();
+
+
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+
         }
     }
 }
