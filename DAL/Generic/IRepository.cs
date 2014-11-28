@@ -71,7 +71,7 @@ namespace DAL.Generic
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        int Delete(Expression<Func<T, bool>> predicate);
+        void Delete(Expression<Func<T, bool>> predicate);
 
 
         /// <summary>

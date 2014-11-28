@@ -1,15 +1,12 @@
-﻿using System;
+﻿using BusinessLogic.Interfaces;
+using DAL.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyOpportunity.Models;
-using BusinessLogic.Interfaces;
-using DAL.Models;
 
-namespace MyOpportunity.Controllers
+namespace MyOpportunity.Areas.Admin.Controllers
 {
     public class CategoryController : Controller
     {
@@ -121,6 +118,5 @@ namespace MyOpportunity.Controllers
             _catalogService.DeleteCategory(id);
             return RedirectToAction("Index");
         }
-
     }
 }

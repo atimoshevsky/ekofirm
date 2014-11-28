@@ -42,7 +42,7 @@ namespace DAL.Generic
             return _resetSet.AsQueryable();
         }
 
-        public bool Contains(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public virtual bool Contains(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
             return _dbSet.Count(predicate) > 0;
         }
@@ -52,39 +52,34 @@ namespace DAL.Generic
             return _dbSet.Find(keys);
         }
 
-        public T Find(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public virtual T Find(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
             return _dbSet.FirstOrDefault(predicate);
         }
 
-        public T Create(T t)
+        public virtual T Create(T t)
         {
             var newEtity = _dbSet.Add(t);
-            _dbContext.SaveChanges();
-            return newEtity;
-
+            return t;
         }
 
-        public void Delete(T t)
+        public virtual void Delete(T t)
         {
             _dbSet.Remove(t);
-            _dbContext.SaveChanges();
         }
 
-        public int Delete(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public virtual void Delete(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
             var entities = Filter(predicate);
             _dbSet.RemoveRange(entities);
-            _dbContext.SaveChanges();
-            return entities.Count();
         }
 
-        public int Update(T t)
+        public virtual int Update(T t)
         {
             var entry = _dbContext.Entry(t);
             _dbSet.Attach(t);
             entry.State = EntityState.Modified;
-            return _dbContext.SaveChanges();
+            return 1;
         }
 
         public virtual int Count

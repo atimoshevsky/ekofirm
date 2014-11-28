@@ -79,19 +79,23 @@ namespace BusinessLogic.Classes
         public Product CreateProduct(Product product)
         {
             product.DateCreated = DateTime.UtcNow;
-            var newProduct = _context.ProductRepository.Create(product);
-            return newProduct;
+            _context.ProductRepository.Create(product);
+            _context.SaveChanges();
+            var persistedProduct = _context.ProductRepository.Find(product.ProductID); ;
+            return persistedProduct;
         }
 
         public int UpdateProduct(Product product)
         {
-            return _context.ProductRepository.Update(product);
+            _context.ProductRepository.Update(product);
+            return _context.SaveChanges();
         }
 
         public void DeleteProduct(int id)
         {
             var product = _context.ProductRepository.Find(id);
             _context.ProductRepository.Delete(product);
+            _context.SaveChanges();
         }
 
         #endregion

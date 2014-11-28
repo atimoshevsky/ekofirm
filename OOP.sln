@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP", "Decorator\OOP.csproj", "{08D081FF-62D2-4095-BD8A-69D31B5DAE44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOpportunityMVC", "MyOpportunity\MyOpportunityMVC.csproj", "{4BB8B6AD-E821-4358-B6D2-A63C13C60DCB}"

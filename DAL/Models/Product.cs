@@ -42,7 +42,7 @@ namespace DAL.Models
         public string PriceClerification { get; set; }
 
         [Required]
-        [DisplayName("Путь к картинке*")]
+        [DisplayName("Путь к картинке*. Пример: /images/products/Milk/Goat/Milk.jpg")]
         public string ImageUrl { get; set; }
 
         [DisplayName("Влючить к сезонным")]

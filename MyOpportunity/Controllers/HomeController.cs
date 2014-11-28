@@ -9,7 +9,7 @@ using BusinessLogic.Interfaces;
 
 namespace MyOpportunity.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller, IDisposable
     {
         private readonly ICatalogService _catalogService;
 
@@ -59,6 +59,6 @@ namespace MyOpportunity.Controllers
 
             return View();
         }
-       
+     
     }
 }

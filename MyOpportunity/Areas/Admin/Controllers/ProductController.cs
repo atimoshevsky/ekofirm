@@ -1,15 +1,12 @@
-﻿using System;
+﻿using BusinessLogic.Interfaces;
+using DAL.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyOpportunity.Models;
-using BusinessLogic.Interfaces;
-using DAL.Models;
 
-namespace MyOpportunity.Controllers
+namespace MyOpportunity.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
@@ -32,7 +29,7 @@ namespace MyOpportunity.Controllers
 
             return View(category);
         }
-         //
+        //
         // GET: /Reviews/
         public ActionResult Index([Bind(Prefix = "id")]int categoryId)
         {
@@ -68,7 +65,7 @@ namespace MyOpportunity.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            var product =_catalogService.GetProductById(id);
+            var product = _catalogService.GetProductById(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -113,9 +110,7 @@ namespace MyOpportunity.Controllers
         {
             var categoryId = _catalogService.GetCategoryIdByProductId(id);
             _catalogService.DeleteProduct(id);
-            return RedirectToAction("Index", new { id = categoryId});
+            return RedirectToAction("Index", new { id = categoryId });
         }
-
-        
     }
 }
