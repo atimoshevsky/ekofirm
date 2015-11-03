@@ -11,7 +11,7 @@ namespace DAL.Migration
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ApplicationDBContext context)

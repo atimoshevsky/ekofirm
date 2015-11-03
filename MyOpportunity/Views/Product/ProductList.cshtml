@@ -1,7 +1,7 @@
 ﻿@model DAL.Models.Category
 
 @{
-    ViewBag.Title = "Продукты категории";
+    ViewBag.Title = "Products";
 }
 
 @Html.Partial("_ProductList", @Model.Products.Where(p => p.IsActive == true))

@@ -10,7 +10,7 @@ namespace DAL.Generic
     {
         public string ConnectionString
         {
-            get { return @"Data Source=(localdb)\Projects;Initial Catalog=Ekofirm;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False"; }
+            get { return @"Data Source=(LocalDb)\v11.0;AttachDbFilename=F:\EcoFirm\MyOpportunity\App_Data\OdeToFoodDb.mdf;Initial Catalog=OdeToFoodDb;Integrated Security=True"; }
         }
     }
 }

@@ -11,29 +11,41 @@ namespace DAL.Models
 {
     public class Category
     {
+
+        private string _actionName = "ProductList";
+        private string _controller = "Product";
+       
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int CategoryID { get; set; }
 
         [Required]
         [StringLength(100)]
-        [DisplayName("Имя категории")]
+        [DisplayName("Name of category")]
         public string CategoryName { get; set; }
 
         [Required]
         [StringLength(50)]
-        [DisplayName("Код*")]
+        [DisplayName("Code*")]
         public string Code { get; set; }
 
         [Required]
         [StringLength(50)]
         [DisplayName("Action*")]
-        public string ActionName { get; set; }
+        public string ActionName
+        {
+            get { return _actionName; }
+            set { _actionName = value; }
+        }
 
         [Required]
         [StringLength(50)]
         [DisplayName("Controller*")]
-        public string ControllerName { get; set; }
+        public string ControllerName
+        {
+            get { return _controller; }
+            set { _controller = value; }
+        }
 
         public virtual ICollection<Product> Products { get; set; }
     }
